@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BayarKu - PPOB Lengkap</title>
+    <!-- Gunakan path relatif tanpa leading slash -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Tambahkan favicon -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Tambahkan loading indicator awal -->
+    <div id="loading" style="position:fixed;top:0;left:0;width:100%;height:100%;background:var(--bg-color);z-index:9999;display:flex;justify-content:center;align-items:center;">
+        <div class="spinner"></div>
+    </div>
+
+    <header class="hero">
+        <nav>
+            <div class="logo">
+                <!-- Pastikan path gambar relatif benar -->
+                <img src="assets/images/logo.png" alt="BayarKu">
+                <span>BayarKu</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#features">Fitur</a></li>
+                <li><a href="#products">Produk</a></li>
+                <li><a href="#testimonials">Testimoni</a></li>
+                <li><a href="login.html" class="btn-login">Masuk</a></li>
+                <li><a href="register.html" class="btn-register">Daftar</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+        <div class="hero-content">
+            <h1>Bayar Semua Tagihan dalam Satu Aplikasi</h1>
+            <p>Pulsa, Paket Data, Listrik, PDAM, TV Kabel, dan banyak lagi dengan cepat dan mudah</p>
+            <div class="hero-buttons">
+                <a href="register.html" class="btn-primary">Mulai Sekarang</a>
+                <a href="#how-it-works" class="btn-secondary">Pelajari Lebih Lanjut</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <!-- Pastikan path gambar relatif benar -->
+            <img src="assets/images/hero-illustration.png" alt="BayarKu App">
+        </div>
+    </header>
+
+    <!-- Sertakan bagian-bagian lainnya... -->
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <div class="logo">
+                    <img src="assets/images/logo.png" alt="BayarKu">
+                    <span>BayarKu</span>
+                </div>
+                <p>Solusi pembayaran dan pembelian pulsa serta tagihan terlengkap di Indonesia.</p>
+                <div class="socials">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <!-- Footer sections lainnya... -->
+        </div>
+    </footer>
+
+    <!-- Tambahkan script untuk handle 404 pada SPA -->
+    <script>
+        // Sembunyikan loading indicator setelah konten dimuat
+        window.addEventListener('load', function() {
+            document.getElementById('loading').style.display = 'none';
+        });
+
+        // Handle routing untuk GitHub Pages
+        (function(){
+            // Simpan halaman yang diminta sebelum redirect 404
+            var redirect = sessionStorage.redirect;
+            delete sessionStorage.redirect;
+            if (redirect && redirect != location.href) {
+                history.replaceState(null, null, redirect);
+            }
+            
+            // Perbaiki path untuk GitHub Pages
+            document.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A' && e.target.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = e.target.getAttribute('href');
+                    document.querySelector(targetId).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        })();
+    </script>
+
+    <!-- Gunakan path relatif untuk file JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
